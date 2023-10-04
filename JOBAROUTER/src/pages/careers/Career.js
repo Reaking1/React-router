@@ -23,6 +23,9 @@ const careers = useLoaderData()
 
 export const careersLoader = async () => {
     const res = await fetch(' http://localhost:4000/careers')
-
+     
+    if(!res.ok) {
+        throw Error('The data is nowhere to be seen')
+    }
     return res.json()
 }
